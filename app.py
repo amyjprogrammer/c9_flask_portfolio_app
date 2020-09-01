@@ -28,7 +28,7 @@ def monthly_interest():
 	  elif request.method == 'POST':
   	      	starting_cash = request.form['text']
 		        
-  	      count = request.form['installment']
+  	      	count = request.form['installment']
   	      try:
   	      	for i in range (1,13):
   	      		count = ((count + starting_cash)  * (request.form['interest']) / 100) + (count + starting_cash)
