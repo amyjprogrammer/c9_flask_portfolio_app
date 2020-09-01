@@ -27,7 +27,7 @@ def monthly_interest():
 	  	return render_template('add_numbers.html')
 	  elif request.method == 'POST':
   	      	starting_cash = request.form['text']
-		interest_rate = request.form['interest']
+		        interest_rate = request.form['interest']
   	      count = request.form['installment']
   	      try:
   	      	for i in range (1,13):
@@ -35,7 +35,6 @@ def monthly_interest():
   	      	return render_template('add_numbers.html', result=str(count))
   	      except ValueError:
   	      	return "Easy now! Remember to use a number for Interest."
-
 
 @app.route('/shopping_list', methods=['GET','POST'])
 def shopping_list_post():
