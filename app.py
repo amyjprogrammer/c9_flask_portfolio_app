@@ -19,20 +19,22 @@ def profile(name):
 
 
 @app.route('/add_numbers', methods=['GET','POST'])
-def add_numbers_post():
-	  # --> ['5', '6', '8']
+def monthly_interest():
+	  # taking starting cash+ new money every month and finding interest 
+	  # in html text=starting balance, interest = interest rate, installment = monthly amount
 	  # print(type(request.form['text']))
 	  if request.method == 'GET':
 	  	return render_template('add_numbers.html')
 	  elif request.method == 'POST':
-  	      print(request.form['text'].split())
-  	      total = 0
+  	      	starting_cash = request.form['text']
+		interest_rate = request.form['interest']
+  	      count = request.form['installment']
   	      try:
-  	      	for str_num in request.form['text'].split():
-  	      		total += int(str_num)
-  	      	return render_template('add_numbers.html', result=str(total))
+  	      	for i in range (1,13):
+  	      		count = ((count + starting_cash)  * (interest_rate) / 100) + (count + starting_cash)
+  	      	return render_template('add_numbers.html', result=str(count))
   	      except ValueError:
-  	      	return "Easy now! Let's keep it simple! 2 numbers with a space between them please"
+  	      	return "Easy now! Remember to use a number for Interest."
 
 
 @app.route('/shopping_list', methods=['GET','POST'])
