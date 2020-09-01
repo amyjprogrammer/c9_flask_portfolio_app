@@ -31,7 +31,7 @@ def monthly_interest():
   	      	count = request.form['installment']
   	      	try:
   	      		for i in range (1,13):
-  	      			count = ((count + starting_cash)  * (request.form['interest']) / 100) + (count + starting_cash)
+  	      			count = ((count + starting_cash) * (request.form['interest']) / 100) + (count + starting_cash)
   	      	return render_template('add_numbers.html', result=str(count))
   	      	except ValueError:
   	      		return "Easy now! Remember to use a number for Interest."
